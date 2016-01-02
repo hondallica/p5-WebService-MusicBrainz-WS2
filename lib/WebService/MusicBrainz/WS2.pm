@@ -1,8 +1,13 @@
 package WebService::MusicBrainz::WS2;
-use 5.008001;
-use strict;
-use warnings;
-
+use JSON::XS;
+use Cache::LRU;
+use Net::DNS::Lite;
+use Furl;
+use URI;
+use URI::QueryParam;
+use Carp;
+use Moo;
+use namespace::clean;
 our $VERSION = "0.01";
 
 
@@ -36,4 +41,3 @@ it under the same terms as Perl itself.
 Hondallica E<lt>hondallica@gmail.comE<gt>
 
 =cut
-
