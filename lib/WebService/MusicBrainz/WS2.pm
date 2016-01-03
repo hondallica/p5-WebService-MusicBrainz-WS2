@@ -14,6 +14,7 @@ our $VERSION = "0.01";
 
 has url => (
     is => 'rw',
+    required => 1,
     default => sub {
         my $uri = new URI;
         $uri->scheme('http');
@@ -22,7 +23,6 @@ has url => (
         $uri;
     },
 );
-
 
 
 1;
