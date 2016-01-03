@@ -50,6 +50,12 @@ has retry => (
     default => sub { return 3 },
 );
 
+has auto_decode_json => (
+    is => 'rw',
+    required => 1,
+    default => sub { return 1 },
+);
+
 sub request {
     my ( $self, $url ) = @_;
     my %response;
@@ -57,7 +63,14 @@ sub request {
 
     $url = new URI($url) unless ref $url eq 'URI';
     $url->query_form('fmt' => $self->format);
-    @response{@keys} = $self->http->request(url => $url);
+
+    eval {
+        for (my $i = 0; $i <= $self->retry; $i++) {
+            @response{@keys} = $self->http->request(url => $url);
+            $response{content} = decode_json $response{content} if $self->{auto_decode_json};
+            last if $response{status_code} == 200;
+        }
+    };
 
     return \%response;
 }
