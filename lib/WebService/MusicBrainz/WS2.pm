@@ -34,16 +34,14 @@ has url => (
         $uri->scheme('http');
         $uri->host('musicbrainz.org');
         $uri->path('ws/2/');
-        $uri;
+        return $uri;
     },
 );
 
 has format => (
     is => 'rw',
     required => 1,
-    default => sub {
-        'json'
-    },
+    default => sub { return 'json' },
 );
 
 sub request {
