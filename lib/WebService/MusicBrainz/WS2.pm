@@ -12,6 +12,19 @@ our $VERSION = "0.01";
 
 
 
+has url => (
+    is => 'rw',
+    default => sub {
+        my $uri = new URI;
+        $uri->scheme('http');
+        $uri->host('musicbrainz.org');
+        $uri->path('ws/2/');
+        $uri;
+    },
+);
+
+
+
 1;
 __END__
 
