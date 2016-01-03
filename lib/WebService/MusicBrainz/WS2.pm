@@ -83,15 +83,29 @@ __END__
 
 =head1 NAME
 
-WebService::MusicBrainz::WS2 - It's new $module
+WebService::MusicBrainz::WS2 - MusicBrainz Web Service version2 client library
 
 =head1 SYNOPSIS
 
     use WebService::MusicBrainz::WS2;
 
+    my $musicbrainz = new WebService::MusicBrainz::WS2;
+
 =head1 DESCRIPTION
 
-WebService::MusicBrainz::WS2 is ...
+The module provides a simple interface to the MusicBrainz API.
+
+=head1 METHODS
+
+=head2 request
+
+    my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab'; # Metallica
+    my $res = $musicbrainz->request($musicbrainz->url . 'artist/' . $mbid);
+
+=head1 SEE ALSO
+
+L<https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2>
+L<https://musicbrainz.org/doc/Development/JSON_Web_Service>
 
 =head1 LICENSE
 

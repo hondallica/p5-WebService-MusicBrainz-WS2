@@ -1,14 +1,28 @@
 # NAME
 
-WebService::MusicBrainz::WS2 - It's new $module
+WebService::MusicBrainz::WS2 - MusicBrainz Web Service version2 client library
 
 # SYNOPSIS
 
     use WebService::MusicBrainz::WS2;
 
+    my $musicbrainz = new WebService::MusicBrainz::WS2;
+
 # DESCRIPTION
 
-WebService::MusicBrainz::WS2 is ...
+The module provides a simple interface to the MusicBrainz API.
+
+# METHODS
+
+## request
+
+    my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab'; # Metallica
+    my $res = $musicbrainz->request($musicbrainz->url . 'artist/' . $mbid);
+
+# SEE ALSO
+
+[https://musicbrainz.org/doc/Development/XML\_Web\_Service/Version\_2](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)
+[https://musicbrainz.org/doc/Development/JSON\_Web\_Service](https://musicbrainz.org/doc/Development/JSON_Web_Service)
 
 # LICENSE
 

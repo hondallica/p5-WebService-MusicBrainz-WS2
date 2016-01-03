@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "MusicBrainz Web Service version2 client library",
    "author" : [
       "Hondallica <hondallica@gmail.com>"
    ],
