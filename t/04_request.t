@@ -17,6 +17,8 @@ ok exists $res->{message};
 is $res->{status_code}, 200;
 is ref $res->{headers}, 'ARRAY';
 
+is $musicbrainz->retry, 3;
+
 
 done_testing;
 

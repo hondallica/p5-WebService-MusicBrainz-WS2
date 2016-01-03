@@ -44,6 +44,12 @@ has format => (
     default => sub { return 'json' },
 );
 
+has retry => (
+    is => 'rw',
+    required => 1,
+    default => sub { return 3 },
+);
+
 sub request {
     my ( $self, $url ) = @_;
     my %response;
