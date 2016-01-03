@@ -38,6 +38,26 @@ has url => (
     },
 );
 
+has format => (
+    is => 'rw',
+    required => 1,
+    default => sub {
+        'json'
+    },
+);
+
+sub request {
+    my ( $self, $url ) = @_;
+    my %response;
+    my @keys = qw(minor_version status_code message headers content);
+
+    $url = new URI($url) unless ref $url eq 'URI';
+    $url->query_form('fmt' => $self->format);
+    @response{@keys} = $self->http->request(url => $url);
+
+    return \%response;
+}
+
 
 1;
 __END__
