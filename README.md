@@ -29,6 +29,7 @@ The module provides a simple interface to the MusicBrainz API.
     $res = $musicbrainz->artist($mbid, { inc => 'releases' });
     $res = $musicbrainz->artist($mbid, { inc => 'release-groups' });
     $res = $musicbrainz->artist($mbid, { inc => 'works' });
+    $res = $musicbrainz->artist($mbid, { inc => 'recordings+releases' });
 
 # SEE ALSO
 
