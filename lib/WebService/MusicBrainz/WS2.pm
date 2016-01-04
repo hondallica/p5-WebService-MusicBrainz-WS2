@@ -56,13 +56,20 @@ has auto_decode_json => (
     default => sub { return 1 },
 );
 
+sub artist {
+    my ( $self, $mbid, $param ) = @_;
+    my $url = $self->url . 'artist/' . $mbid;
+    return $self->request($url, $param);
+}
+
 sub request {
-    my ( $self, $url ) = @_;
+    my ( $self, $url, $param ) = @_;
     my %response;
     my @keys = qw(minor_version status_code message headers content);
 
     $url = new URI($url) unless ref $url eq 'URI';
-    $url->query_form('fmt' => $self->format);
+    $param->{fmt} = $self->format;
+    $url->query_form($param);
 
     eval {
         for (my $i = 0; $i <= $self->retry; $i++) {
@@ -101,6 +108,11 @@ The module provides a simple interface to the MusicBrainz API.
 
     my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab'; # Metallica
     my $res = $musicbrainz->request($musicbrainz->url . 'artist/' . $mbid);
+
+=head2 artist
+
+    my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
+    my $res = $musicbrainz->artist($mbid);
 
 =head1 SEE ALSO
 

@@ -19,6 +19,11 @@ The module provides a simple interface to the MusicBrainz API.
     my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab'; # Metallica
     my $res = $musicbrainz->request($musicbrainz->url . 'artist/' . $mbid);
 
+## artist
+
+    my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
+    my $res = $musicbrainz->artist($mbid);
+
 # SEE ALSO
 
 [https://musicbrainz.org/doc/Development/XML\_Web\_Service/Version\_2](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)
