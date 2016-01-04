@@ -24,6 +24,12 @@ The module provides a simple interface to the MusicBrainz API.
     my $mbid = '65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab';
     my $res = $musicbrainz->artist($mbid);
 
+    # Subqueries
+    $res = $musicbrainz->artist($mbid, { inc => 'recordings' });
+    $res = $musicbrainz->artist($mbid, { inc => 'releases' });
+    $res = $musicbrainz->artist($mbid, { inc => 'release-groups' });
+    $res = $musicbrainz->artist($mbid, { inc => 'works' });
+
 # SEE ALSO
 
 [https://musicbrainz.org/doc/Development/XML\_Web\_Service/Version\_2](https://musicbrainz.org/doc/Development/XML_Web_Service/Version_2)
